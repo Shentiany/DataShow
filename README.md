@@ -1,6 +1,6 @@
 <h1 align="center">DataShow</h1>
 <p align="center">
-    <em>✨国家级大学生创新创业训练计划平台</em>
+    <em>✨数据源：国家级大学生创新创业训练计划平台</em>
 </p>
 <p align="center">
     <a href="https://pypi.org/project/jieba/">
