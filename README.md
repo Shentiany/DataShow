@@ -20,5 +20,7 @@ Python 是一门富有表达力的语言。此项目使用Python实现了一个�
 
 
 ## 🔰 词云
-使用Python第三方库jieba（中文分词）和wordcloud分别切分项目名称和制作词云。
+使用Python第三方库jieba（中文分词）和wordcloud分别切分项目名称和制作词云。  
+  
+    
 ![](https://github.com/Shentiany/DataShow/blob/master/wordcloud.png)
