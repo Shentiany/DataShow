@@ -27,14 +27,14 @@ def get_detail_info(href_list):
     for href in href_list:
         response = requests.get(href, headers=headers)
         html = etree.HTML(response.text)
-        item['name'] = html.xpath('//*[contains(text(),"项目名称")]/text()')
-        item['key_word']= html.xpath('//*[contains(text(),"关键词")]/text()')
-        item['project_type'] = html.xpath('//*[contains(text(),"项目类型")]/text()')
-        item['school_name'] = html.xpath('//*[contains(text(),"所属学校")]/text()')
-        item['discipline_one'] = html.xpath('//*[contains(text(),"所属一级学科")]/text()')
-        item['discipline_two'] = html.xpath('//*[contains(text(),"所属二级学科")]/text()')
-        item['time'] = html.xpath('//*[contains(text(),"立项时间")]/text()')
-        item['money'] = html.xpath('//*[contains(text(),"批准经费额度")]/text()')
+        item['name'] = html.xpath('normalize-space(//*[contains(text(),"项目名称")]/text())').replace('项目名称：', '')
+        item['key_word']= html.xpath('normalize-space(//*[contains(text(),"关键词")]/text())').replace('项目关键词：', '')
+        item['project_type'] = html.xpath('normalize-space(//*[contains(text(),"项目类型")]/text())').replace('项目类型：', '')
+        item['school_name'] = html.xpath('normalize-space(//*[contains(text(),"所属学校")]/text())').replace('所属学校：', '')
+        item['discipline_one'] = html.xpath('normalize-space(//*[contains(text(),"所属一级学科")]/text())').replace('所属一级学科：', '')
+        item['discipline_two'] = html.xpath('normalize-space(//*[contains(text(),"所属二级学科")]/text())').replace('所属二级学科：', '')
+        item['time'] = html.xpath('normalize-space(//*[contains(text(),"立项时间")]/text())').replace('立项时间：', '')
+        item['money'] = html.xpath('normalize-space(//*[contains(text(),"批准经费额度")]/text())').replace('批准经费额度：', '')
         item['number_of_participants'] = int(html.xpath('count(//table[@class="table-itemstu"]//tr)-1'))
         change_item = json.dumps(item, ensure_ascii=False)
         with open('item.txt', 'a+') as file:
@@ -45,7 +45,7 @@ if __name__ == '__main__':
     url = 'http://gjcxcy.bjtu.edu.cn/LXItemList.aspx'
     xpath_of_a = '//div[@class="List_Nrz FL"]/a'
     xpath_of_next_page = '//*[contains(text(),"下一页")]'
-    page = 2
+    page = 1577
 
     href_list = get_detail_page(page, url, xpath_of_a, xpath_of_next_page)
     get_detail_info(href_list)
