@@ -32,3 +32,9 @@ Python 是一门富有表达力的语言。此项目使用Python实现了一个�
 </p>
     
 ![](https://github.com/Shentiany/DataShow/blob/master/subject.gif)
+
+<p align="center">
+    <em>经费</em>
+</p>
+
+![](https://github.com/Shentiany/DataShow/blob/master/money2019.gif)
